@@ -36,12 +36,15 @@ function draw(e){
 
 
 canvas.addEventListener("mousedown", (e) => {
-    painting = true;
-    //ready next line to draw
-    lines.push([]);
-
-    ctx.beginPath();
-    draw(e);
+   // check if mousedown was left mouse button
+    if (e.button == 0) {
+        painting = true;
+        //ready next line to draw
+        lines.push([]);
+    
+        ctx.beginPath();
+        draw(e);
+    } 
 });
 
 canvas.addEventListener("mouseup", () => painting = false);
