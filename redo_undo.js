@@ -53,3 +53,11 @@ window.addEventListener("keydown", (e) => {
         redo();
     }
 });
+
+canvas.addEventListener("mousedown", () => {
+    //remove deleted lines, creating a new redo "offset" (inspired by normal windows paint)
+    //(this function was originally in the paint mousedown event,
+    // but since I want this js file to have all functions related to redoing and undoing, it was
+    // refactored to here (high cohesion))
+    deletedLines = [];
+});
