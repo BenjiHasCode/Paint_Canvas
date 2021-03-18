@@ -22,7 +22,8 @@ function draw(e){
         ctx.moveTo(x, y);
 
         //save line
-        //we initialize an empty line (array) when we click mouse. Here we populate that line with data (so we can redraw it if needed)
+        // we initialize an empty line (array) when we click mouse.
+        // Here we populate that line with data (so we can redraw it if needed)
         lines[lines.length-1].push({
             color,
             size,
@@ -38,8 +39,6 @@ canvas.addEventListener("mousedown", (e) => {
     painting = true;
     //ready next line to draw
     lines.push([]);
-    //remove deleted lines, creating a new redo "offset" (inspired by normal windows paint)
-    deletedLines = [];
 
     ctx.beginPath();
     draw(e);
@@ -48,7 +47,7 @@ canvas.addEventListener("mousedown", (e) => {
 canvas.addEventListener("mouseup", () => painting = false);
 canvas.addEventListener("mousemove", draw);
 
-window.addEventListener('load', () => resizeCanvas());
+window.addEventListener('load', resizeCanvas);
 window.addEventListener('resize', () => {
     resizeCanvas();
     redraw();
